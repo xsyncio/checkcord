@@ -32,9 +32,8 @@ class GlobalRateLimiter:
                     pass
                 return
 
-            console.print(
-                f"[bold yellow]⚠️ Global Rate Limit Hit! Pausing all threads for {retry_after:.2f}s...[/bold yellow]"
-            )
+            msg = f"⚠️ Global Rate Limit! Pausing for {retry_after:.2f}s..."
+            console.print(f"[bold yellow]{msg}[/bold yellow]")
             self._pause_event.clear()
             self.current_delay = max(
                 self.current_delay * 1.5, 1.0
@@ -46,6 +45,5 @@ class GlobalRateLimiter:
     async def _reset_pause(self, duration: float):
         await asyncio.sleep(duration)
         self._pause_event.set()
-        console.print(
-            f"[bold green]✅ Resuming requests (New delay: {self.current_delay:.2f}s)[/bold green]"
-        )
+        msg = f"✅ Resuming requests (Delay: {self.current_delay:.2f}s)"
+        console.print(f"[bold green]{msg}[/bold green]")

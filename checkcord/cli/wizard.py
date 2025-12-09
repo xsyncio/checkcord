@@ -157,8 +157,7 @@ class Wizard:
             new_threads = IntPrompt.ask(
                 "Threads (1-50)", default=self.config.thread_count
             )
-            # new_delay = FloatPrompt.ask("Retry Delay", default=self.config.retry_delay)
-            # Fixed FloatPrompt import above
+            # FloatPrompt for retry delay
             new_delay = FloatPrompt.ask("Retry Delay", default=self.config.retry_delay)
 
             self.config.token = new_token

@@ -1,5 +1,6 @@
 import asyncio
 from pathlib import Path
+from typing import Annotated
 
 import typer
 
@@ -63,11 +64,12 @@ def generate(
     asyncio.run(run_checks(usernames, config))
 
 
+FILE_PATH = typer.Argument(..., exists=True, help="Path to text file")
+
+
 @app.command()
 def check_list(
-    file_path: Path = typer.Argument(
-        ..., exists=True, help="Path to text file containing usernames"
-    ),
+    file_path: Annotated[Path, FILE_PATH],
 ):
     """Check a list of usernames from a file."""
     config = load_config()

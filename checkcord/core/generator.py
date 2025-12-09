@@ -62,9 +62,8 @@ class RandomCharGenerator(GeneratorStrategy):
             usernames.append(name)
 
         if len(usernames) < count:
-            console.print(
-                f"[yellow]Warning: Could only generate {len(usernames)} unique names (Pool exhausted?)[/yellow]"
-            )
+            msg = f"Could only generate {len(usernames)} unique names"
+            console.print(f"[yellow]Warning: {msg}[/yellow]")
 
         return usernames
 
@@ -153,9 +152,8 @@ class PatternGenerator(GeneratorStrategy):
             usernames.append(name)
 
         if len(usernames) < count:
-            console.print(
-                f"[yellow]Warning: Could only generate {len(usernames)} unique names[/yellow]"
-            )
+            msg = f"Could only generate {len(usernames)} unique names"
+            console.print(f"[yellow]Warning: {msg}[/yellow]")
 
         return usernames
 
@@ -242,9 +240,8 @@ class DictionaryGenerator(GeneratorStrategy):
             usernames.append(name)
 
         if len(usernames) < count:
-            console.print(
-                f"[yellow]Warning: Could only generate {len(usernames)} unique names[/yellow]"
-            )
+            msg = f"Could only generate {len(usernames)} unique names"
+            console.print(f"[yellow]Warning: {msg}[/yellow]")
 
         return usernames
 
@@ -296,8 +293,7 @@ class LeetGenerator(GeneratorStrategy):
             usernames.append(name)
 
         if len(usernames) < count:
-            console.print(
-                f"[yellow]Warning: Could only generate {len(usernames)} unique names[/yellow]"
-            )
+            msg = f"Could only generate {len(usernames)} unique names"
+            console.print(f"[yellow]Warning: {msg}[/yellow]")
 
         return usernames

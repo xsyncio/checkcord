@@ -56,8 +56,7 @@ class DiscordChecker:
 
             try:
                 # Use proxy if available
-                # curl_cffi.requests.Response is not generic, so we don't need annotation on LHS if inferred correctly
-                # But to satisfy "partially unknown" complaints or "not awaitable" we stick to explicit type
+                # Explicit type for strict mode
                 response: Response = await session.post(  # type: ignore
                     URL, headers=self.headers, json=payload, proxy=proxy
                 )
@@ -65,7 +64,7 @@ class DiscordChecker:
                 # Handle Rate Limits Globally
                 if response.status_code == 429:
                     try:
-                        # json() returns Any, use cast. Suppress unknown member type from lib.
+                        # json() returns Any, cast it
                         limit_data = cast(dict[str, object], response.json())  # type: ignore
                         # safe cast
                         ra_val = limit_data.get("retry_after", 5.0)

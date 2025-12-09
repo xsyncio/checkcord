@@ -78,6 +78,7 @@ async def run_checks(usernames: list[str], config: AppConfig):
         with open("valid_usernames.txt", "a") as f:
             for name in valid_names:
                 _ = f.write(f"{name}\n")
+        count = len(valid_names)
         console.print(
-            f"[bold green]Saved {len(valid_names)} valid usernames to valid_usernames.txt[/bold green]"
+            f"[bold green]Saved {count} valid usernames to valid_usernames.txt[/green]"
         )
