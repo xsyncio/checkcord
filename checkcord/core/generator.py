@@ -1,7 +1,13 @@
 import random
 import string
+import sys
 from abc import ABC, abstractmethod
-from typing import cast, override
+from typing import cast
+
+if sys.version_info >= (3, 12):
+    from typing import override
+else:
+    from typing_extensions import override
 
 from rich.console import Console
 
