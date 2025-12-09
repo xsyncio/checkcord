@@ -1,11 +1,12 @@
 """Tests for checkcord.core.generator module."""
 
 import pytest
+
 from checkcord.core.generator import (
-    RandomCharGenerator,
-    PatternGenerator,
     DictionaryGenerator,
     LeetGenerator,
+    PatternGenerator,
+    RandomCharGenerator,
 )
 
 

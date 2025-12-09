@@ -1,6 +1,5 @@
 """Tests for checkcord package."""
 
-import pytest
 
 
 class TestImports:
@@ -19,10 +18,10 @@ class TestImports:
 
     def test_import_generators(self):
         from checkcord import (
-            RandomCharGenerator,
             DictionaryGenerator,
             LeetGenerator,
             PatternGenerator,
+            RandomCharGenerator,
         )
 
         assert RandomCharGenerator is not None
@@ -31,7 +30,7 @@ class TestImports:
         assert PatternGenerator is not None
 
     def test_import_models(self):
-        from checkcord import CheckResult, CheckStatus, AppConfig
+        from checkcord import AppConfig, CheckResult, CheckStatus
 
         assert CheckResult is not None
         assert CheckStatus is not None

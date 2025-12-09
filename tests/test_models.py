@@ -1,6 +1,5 @@
 """Tests for checkcord.models module."""
 
-import pytest
 from checkcord.models import (
     AppConfig,
     CheckResult,
