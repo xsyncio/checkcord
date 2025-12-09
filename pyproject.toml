@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "checkcord"
+version = "0.1.0"
+description = "A strictly typed, production-grade Discord username checker."
+readme = "README.md"
+authors = [{ name = "Xsyncio"}]
+requires-python = ">=3.10"
+dependencies = [
+    "curl-cffi>=0.5.10",
+    "rich>=13.7.0",
+    "pydantic>=2.5.3",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+checkcord = "checkcord.cli.main:run"
+
+[tool.hatch.build.targets.wheel]
+packages = ["checkcord"]
+
+[tool.pyright]
+typeCheckingMode = "strict"
+include = ["checkcord"]
+exclude = ["**/__pycache__"]
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+    "checkcord/tests",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = []
+
+[tool.ruff.lint.isort]
+known-first-party = ["checkcord"]

@@ -1,0 +1,11 @@
+{
+    "typeCheckingMode": "strict",
+    "include": [
+        "checkcord"
+    ],
+    "exclude": [
+        "**/__pycache__"
+    ],
+    "reportMissingImports": true,
+    "reportMissingTypeStubs": false
+}
